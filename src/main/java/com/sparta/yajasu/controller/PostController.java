@@ -32,5 +32,9 @@ public class PostController {
     public PostResponseDto<?> updatePost(@RequestBody PostRequestDto requestDto,@PathVariable Long id){
         return postService.updatePost(requestDto,id);
     }
+    @DeleteMapping("/api/posts/{id}")
+    public PostResponseDto<?> deletePost(@PathVariable Long id){
+        return postService.deletePost(id);
+    }
 
 }

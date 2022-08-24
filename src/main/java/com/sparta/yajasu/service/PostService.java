@@ -46,4 +46,14 @@ public class PostService {
         post.update(requestDto);
         return PostResponseDto.success(post);
     }
+    @Transactional
+    public PostResponseDto<?> deletePost(Long id){
+        Optional<Post> optionalPost = postRepository.findById(id);
+        if(optionalPost.isEmpty()){
+            return PostResponseDto.fail("NULL_POST_ID","게시글이 존재하지 않습니다.");
+        }
+        Post post = optionalPost.get();
+        postRepository.delete(post);
+        return PostResponseDto.success(true);
+    }
 }
