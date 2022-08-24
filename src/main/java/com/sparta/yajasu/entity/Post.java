@@ -1,5 +1,6 @@
 package com.sparta.yajasu.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sparta.yajasu.dto.PostRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,10 +19,11 @@ public class Post extends Timestamped{
     private Long id;
     @Column(nullable = false)
     private String title;
-    @Column(nullable = false)
+    @Column(nullable = false,columnDefinition = "TEXT")
     private String content;
     @Column(nullable = false)
     private String author;
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 

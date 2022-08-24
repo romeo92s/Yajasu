@@ -1,5 +1,6 @@
 package com.sparta.yajasu.controller;
 
+import com.sparta.yajasu.dto.PasswordDto;
 import com.sparta.yajasu.dto.PostRequestDto;
 import com.sparta.yajasu.dto.PostResponseDto;
 import com.sparta.yajasu.service.PostService;
@@ -35,6 +36,10 @@ public class PostController {
     @DeleteMapping("/api/posts/{id}")
     public PostResponseDto<?> deletePost(@PathVariable Long id){
         return postService.deletePost(id);
+    }
+    @PostMapping("/api/posts/{id}")
+    public PostResponseDto<?> validateAuthorByPassword(@PathVariable Long id,@RequestBody PasswordDto password){
+        return postService.validateAuthorByPassword(id,password);
     }
 
 }
