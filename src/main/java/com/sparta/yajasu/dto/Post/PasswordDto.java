@@ -1,4 +1,4 @@
-package com.sparta.yajasu.dto;
+package com.sparta.yajasu.dto.Post;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,8 @@
 package com.sparta.yajasu.service;
 
-import com.sparta.yajasu.dto.PasswordDto;
-import com.sparta.yajasu.dto.PostRequestDto;
-import com.sparta.yajasu.dto.PostResponseDto;
+import com.sparta.yajasu.dto.Post.PasswordDto;
+import com.sparta.yajasu.dto.Post.PostRequestDto;
+import com.sparta.yajasu.dto.Post.PostResponseDto;
 import com.sparta.yajasu.entity.Post;
 import com.sparta.yajasu.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +37,7 @@ public class PostService {
         }
         return PostResponseDto.success(optionalPost.get());
     }
+    //게시글 수정
     @Transactional
     public PostResponseDto<?> updatePost(PostRequestDto requestDto,Long id){
         Optional<Post> optionalPost = postRepository.findById(id);

@@ -1,8 +1,8 @@
 package com.sparta.yajasu.controller;
 
-import com.sparta.yajasu.dto.PasswordDto;
-import com.sparta.yajasu.dto.PostRequestDto;
-import com.sparta.yajasu.dto.PostResponseDto;
+import com.sparta.yajasu.dto.Post.PasswordDto;
+import com.sparta.yajasu.dto.Post.PostRequestDto;
+import com.sparta.yajasu.dto.Post.PostResponseDto;
 import com.sparta.yajasu.service.PostService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,10 +29,14 @@ public class PostController {
     public PostResponseDto<?> getPost(@PathVariable Long id){
         return postService.getPost(id);
     }
+
+    //수정
     @PutMapping("/api/posts/{id}")
-    public PostResponseDto<?> updatePost(@RequestBody PostRequestDto requestDto,@PathVariable Long id){
+    public PostResponseDto<?> updatePost(@RequestBody PostRequestDto requestDto,
+                                         @PathVariable Long id){
         return postService.updatePost(requestDto,id);
     }
+    //삭제
     @DeleteMapping("/api/posts/{id}")
     public PostResponseDto<?> deletePost(@PathVariable Long id){
         return postService.deletePost(id);
